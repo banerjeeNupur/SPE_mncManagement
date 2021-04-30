@@ -4,10 +4,13 @@ import com.spe.mncManagement.bean.Credentials;
 import com.spe.mncManagement.bean.Employee;
 import com.spe.mncManagement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class MainController {
 
     @Autowired
@@ -40,9 +43,10 @@ public class MainController {
     @PostMapping(path = "/login",
             produces = {"application/json"},
             consumes = {"application/json"})
-    public Credentials login(@RequestBody Credentials credentials){
+    public ResponseEntity<Credentials> login(@RequestBody Credentials credentials){
         System.out.println("controller : "+credentials.getUsername()+"  "+credentials.getPassword());
-        return userService.login(credentials.getUsername(),credentials.getPassword());
-
+        Credentials c = userService.login(credentials.getUsername(),credentials.getPassword());
+        if(c==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND); 
+        return new ResponseEntity<>(c, HttpStatus.OK);
     }
 }
