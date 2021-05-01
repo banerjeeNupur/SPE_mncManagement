@@ -39,4 +39,8 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.save(p);
 
     }
+
+    public void deleteProject(Long id){
+         projectDao.deleteById(id);
+    }
 }

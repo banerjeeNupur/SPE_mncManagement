@@ -8,9 +8,9 @@ class Header extends Component{
         return(
             <div>
                 <Card>
-                   <CardBody>
-                       <h3 className="text-center">Calvin and Hobbes Co.</h3>
-                   </CardBody>
+                    <CardBody>
+                        <h3 className="text-center">Calvin and Hobbes Co.</h3>
+                    </CardBody>
                 </Card>
 
             </div>

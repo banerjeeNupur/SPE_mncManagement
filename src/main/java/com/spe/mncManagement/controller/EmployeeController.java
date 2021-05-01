@@ -1,7 +1,9 @@
 package com.spe.mncManagement.controller;
 
+import com.spe.mncManagement.bean.Employee;
 import com.spe.mncManagement.bean.Project;
 import com.spe.mncManagement.bean.Request;
+import com.spe.mncManagement.services.EmployeeService;
 import com.spe.mncManagement.services.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,17 +13,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/engineer")
-public class EngineerControlller {
+public class EmployeeController {
+
+//    @Autowired
+//    private RequestService requestService;
 
     @Autowired
-    private RequestService requestService;
+    private EmployeeService employeeService;
 
-    @PostMapping(path = "/sendRequest",
+//    @PostMapping(path = "/sendRequest",
+//            produces = {"application/json"},
+//            consumes = {"application/json"})
+//    public Request sendRequest(@RequestBody Request request){
+//        System.out.println("------------ controller : add project ---------------\n");
+//        return requestService.sendRequest(request);
+//
+//    }
+
+    @PostMapping(path = "/add",
             produces = {"application/json"},
             consumes = {"application/json"})
-    public Request sendRequest(@RequestBody Request request){
+    public Employee add(@RequestBody Employee employee){
         System.out.println("------------ controller : add project ---------------\n");
-        return requestService.sendRequest(request);
+        return employeeService.add(employee);
 
     }
 }

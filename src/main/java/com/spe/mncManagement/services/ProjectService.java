@@ -10,4 +10,5 @@ public interface ProjectService {
     public List<Project> getProjectList();
     public Optional<Project> getProject(Long id);
     public Project updateProject(Project project);
+    public void deleteProject(Long id);
 }

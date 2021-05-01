@@ -3,11 +3,14 @@ package com.spe.mncManagement.controller;
 import com.spe.mncManagement.bean.Project;
 import com.spe.mncManagement.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
 @RequestMapping("/project")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProjectController {
 
     @Autowired
@@ -25,8 +28,8 @@ public class ProjectController {
 
     // list of all the projects
     @GetMapping("/list")
-    public List<Project> getProjectList(){
-        return projectService.getProjectList();
+    public ResponseEntity<List<Project>> getProjectList(){
+        return new ResponseEntity<>(projectService.getProjectList(), HttpStatus.OK);
     }
 
     // get project by ID
@@ -38,7 +41,17 @@ public class ProjectController {
 
     @PutMapping("/update")
     public Project updateProject(@RequestBody Project project){
-        System.out.println("controller : update a given project -----------\n");
+        System.out.println("controller : update a given project -----------\n"+project.getId()+"---"+project.getName()+
+                "---"+project.getProjectId()+"---"+
+                project.getStatus()+"---"+project.getTechnology()+
+                "---"+project.getManager_id());
         return projectService.updateProject(project);
+    }
+
+    @DeleteMapping("/delete/{projectId}")
+    public ResponseEntity<HttpStatus> deleteProject(@PathVariable String projectId){
+        System.out.println("deleting project with id: "+ projectId);
+        projectService.deleteProject(Long.parseLong(projectId));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
