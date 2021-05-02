@@ -2,12 +2,15 @@ package com.spe.mncManagement.controller;
 
 import com.spe.mncManagement.bean.Credentials;
 import com.spe.mncManagement.bean.Employee;
+import com.spe.mncManagement.bean.Project;
 import com.spe.mncManagement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -48,5 +51,11 @@ public class MainController {
         Credentials c = userService.login(credentials.getUsername(),credentials.getPassword());
         if(c==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND); 
         return new ResponseEntity<>(c, HttpStatus.OK);
+    }
+
+    // list of all the projects
+    @GetMapping("/listEmployees")
+    public ResponseEntity<List<Credentials>> getProjectList(){
+        return new ResponseEntity<>(userService.getUserList(), HttpStatus.OK);
     }
 }

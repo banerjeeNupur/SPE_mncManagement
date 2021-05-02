@@ -2,16 +2,17 @@ import React, {Component} from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Login from "./components/Login";
-import AdminDashboard from "./components/Admin/AdminDashboard";
+import AdminDashboard from "./components/AdminDashboard";
 import ProjectList from "./components/ProjectList";
-import ManagerDashboard from "./components/Manager/ManagerDashboard";
+import ManagerDashboard from "./components/ManagerDashboard";
+import Register from "./components/Register";
 
 class App extends Component{
 
     render(){
         return(
             <Router>
-                <Route exact path='/' component={ManagerDashboard}>
+                <Route exact path='/' component={AdminDashboard}>
                 </Route>
                 <Route exact path="/Login" component={Login}>
                 </Route>

@@ -8,7 +8,7 @@ import com.spe.mncManagement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import java.util.*;
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -44,5 +44,10 @@ public class UserServiceImpl implements UserService {
     public Employee update_employee_details(Employee employee){
         System.out.println("populating employee details at the time of signup\n");
         return employeeDao.save(employee);
+    }
+
+    @Override
+    public List<Credentials> getUserList(){
+        return  loginDao.findAll();
     }
 }
