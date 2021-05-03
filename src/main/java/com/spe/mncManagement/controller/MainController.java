@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins="*")
 public class MainController {
 
     @Autowired
@@ -46,16 +47,20 @@ public class MainController {
     @PostMapping(path = "/login",
             produces = {"application/json"},
             consumes = {"application/json"})
-    public ResponseEntity<Credentials> login(@RequestBody Credentials credentials){
+//    ResponseEntity<Credentials>
+    public Credentials login(@RequestBody Credentials credentials){
         System.out.println("controller : "+credentials.getUsername()+"  "+credentials.getPassword());
         Credentials c = userService.login(credentials.getUsername(),credentials.getPassword());
-        if(c==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND); 
-        return new ResponseEntity<>(c, HttpStatus.OK);
+//        if(c==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+//        return new ResponseEntity<>(c, HttpStatus.OK);
+        return c;
     }
 
-    // list of all the projects
+    // list of all the employees
     @GetMapping("/listEmployees")
     public ResponseEntity<List<Credentials>> getProjectList(){
         return new ResponseEntity<>(userService.getUserList(), HttpStatus.OK);
     }
+
+
 }

@@ -31,14 +31,14 @@ public class EmployeeController {
 //
 //    }
 
-    @PostMapping(path = "/add",
-            produces = {"application/json"},
-            consumes = {"application/json"})
-    public Employee add(@RequestBody Employee employee){
-        System.out.println("------------ controller : add project ---------------\n");
-        return employeeService.add(employee);
-
-    }
+////    @PostMapping(path = "/add",
+////            produces = {"application/json"},
+////            consumes = {"application/json"})
+////    public Employee add(@RequestBody Employee employee){
+////        System.out.println("------------ controller : add project ---------------\n");
+////        return employeeService.add(employee);
+//
+//    }
 
 
 }
