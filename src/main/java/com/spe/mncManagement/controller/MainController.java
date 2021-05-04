@@ -47,20 +47,24 @@ public class MainController {
     @PostMapping(path = "/login",
             produces = {"application/json"},
             consumes = {"application/json"})
-//    ResponseEntity<Credentials>
-    public Credentials login(@RequestBody Credentials credentials){
+    public ResponseEntity<Credentials> login(@RequestBody Credentials credentials){
         System.out.println("controller : "+credentials.getUsername()+"  "+credentials.getPassword());
         Credentials c = userService.login(credentials.getUsername(),credentials.getPassword());
-//        if(c==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-//        return new ResponseEntity<>(c, HttpStatus.OK);
-        return c;
+        if(c==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(c, HttpStatus.OK);
+
     }
 
     // list of all the employees
     @GetMapping("/listEmployees")
-    public ResponseEntity<List<Credentials>> getProjectList(){
+    public ResponseEntity<List<Credentials>> getUserList(){
         return new ResponseEntity<>(userService.getUserList(), HttpStatus.OK);
     }
 
+    // list the developers
+    @GetMapping("/list/dev")
+    public ResponseEntity<List<Employee>> getDevList(){
+        return new ResponseEntity<>(userService.getDevList(), HttpStatus.OK);
+    }
 
 }

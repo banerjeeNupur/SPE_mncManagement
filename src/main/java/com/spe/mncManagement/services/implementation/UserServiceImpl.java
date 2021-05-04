@@ -50,4 +50,25 @@ public class UserServiceImpl implements UserService {
     public List<Credentials> getUserList(){
         return  loginDao.findAll();
     }
+
+    @Override
+    public List<Employee> getDevList(){
+
+        List<Credentials> allUsers = loginDao.findAll();
+        List<Employee> dev = employeeDao.findAll();
+
+        List<Long> temp = new ArrayList<>();
+        for (int i = 0; i < allUsers.size(); i++) {
+            temp.add(allUsers.get(i).getEmpId());
+        }
+
+        for (int i = 0; i < dev.size() ; i++) {
+            if(!temp.contains(dev.get(i).getEmpId()))
+                dev.remove(i);
+        }
+
+        return dev;
+
+    }
+
 }

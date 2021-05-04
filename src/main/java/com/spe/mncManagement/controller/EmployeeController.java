@@ -11,34 +11,36 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/engineer")
+@RequestMapping("/employee")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmployeeController {
 
-//    @Autowired
-//    private RequestService requestService;
 
     @Autowired
     private EmployeeService employeeService;
 
-//    @PostMapping(path = "/sendRequest",
-//            produces = {"application/json"},
-//            consumes = {"application/json"})
-//    public Request sendRequest(@RequestBody Request request){
-//        System.out.println("------------ controller : add project ---------------\n");
-//        return requestService.sendRequest(request);
-//
-//    }
 
-////    @PostMapping(path = "/add",
-////            produces = {"application/json"},
-////            consumes = {"application/json"})
-////    public Employee add(@RequestBody Employee employee){
-////        System.out.println("------------ controller : add project ---------------\n");
-////        return employeeService.add(employee);
-//
-//    }
+    //get employee by ID
+    @GetMapping("/view/{empId}")
+    public Optional<Employee> getEmployee(@PathVariable String empId){
+        System.out.println("-------------- get emp by id -----------\n");
+
+        return employeeService.getEmployee(Long.parseLong(empId));
+    }
+
+    // get all the employees : in main controller as of now.
+
+    // add new employee : signup. Implemented in main controller
+
+    // update employee details
+    @PutMapping("/updateDetails")
+    public Employee updateEmpDetails(@RequestBody Employee employee){
+        return employeeService.updateEmpDetails(employee);
+    }
+
 
 
 }

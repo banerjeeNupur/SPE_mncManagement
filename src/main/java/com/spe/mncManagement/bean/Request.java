@@ -25,7 +25,7 @@ public class Request {
 
     public Request(){};
 
-    public Request(Long id, String projectId, Long empId, String status) {
+    public Request(Long id, String projectId, Long empId, String status, String project_tech, String emp_tech) {
         Id = id;
         this.projectId = projectId;
         this.empId = empId;

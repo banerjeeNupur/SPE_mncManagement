@@ -16,16 +16,18 @@ public class RequestServiceImpl implements RequestService {
     private RequestDao requestDao;
 
     public List<Request> getRequestList(){
-        return  requestDao.findAll();
+        return requestDao.findByStatusEquals("pending");
     }
 
     public Request updateRequest(Request request){
         System.out.println("-------------------- this is the request id: "+request.getId());
+        System.out.println("-------------------- request status: "+request.getStatus());
+        request.setStatus(request.getStatus());
         requestDao.deleteById(request.getId());
         return requestDao.save(request);
     }
 
-    public Request sendRequest(Request request){
+    public Request add(Request request){
         return requestDao.save(request);
     }
 }

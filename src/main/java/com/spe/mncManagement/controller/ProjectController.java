@@ -1,7 +1,9 @@
 package com.spe.mncManagement.controller;
 
 import com.spe.mncManagement.bean.Project;
+import com.spe.mncManagement.bean.Request;
 import com.spe.mncManagement.services.ProjectService;
+import com.spe.mncManagement.services.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
+
+    @Autowired
+    private RequestService requestService;
 
     // add a new project
     @PostMapping(path = "/add",
@@ -39,6 +44,7 @@ public class ProjectController {
         return projectService.getProject(Long.parseLong(projectId));
     }
 
+    // update a project
     @PutMapping("/update")
     public Project updateProject(@RequestBody Project project){
         System.out.println("controller : update a given project -----------\n"+project.getId()+"---"+project.getName()+
@@ -48,10 +54,70 @@ public class ProjectController {
         return projectService.updateProject(project);
     }
 
+    // delete project
     @DeleteMapping("/delete/{projectId}")
     public ResponseEntity<HttpStatus> deleteProject(@PathVariable String projectId){
         System.out.println("deleting project with id: "+ projectId);
         projectService.deleteProject(Long.parseLong(projectId));
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    // add a request
+    @PostMapping(path = "/request/add",
+            produces = {"application/json"},
+            consumes = {"application/json"})
+    public Request add(@RequestBody Request request){
+        System.out.println("------------ controller : add project ---------------\n");
+        return requestService.add(request);
+
+    }
+
+    // get all the requests
+    @GetMapping("/request/list")
+    public ResponseEntity<List<Request>> getRequestList(){
+        return new ResponseEntity<>(requestService.getRequestList(), HttpStatus.OK);
+    }
+
+    // update request
+    @PutMapping("/request/update")
+    public Request updateRequest(@RequestBody Request request){
+        System.out.println("controller : update a given request");
+        // if approved : add it to emp_project table
+        if(request.getStatus().equalsIgnoreCase("approved")){
+            projectService.updateEmpProject(request);
+        }
+        // if rejected
+        return requestService.updateRequest(request);
+    }
+
+    // list of requests based on Emp ID
+    @GetMapping(path = "/request/getEmpReq/{empId}")
+    public List<Request> getEmpReq(@PathVariable String empId){
+        System.out.println("-------------- view emp requests -----------\n");
+        System.out.println("emp id is: "+empId);
+        return projectService.getEmpReq(Long.parseLong(empId));
+    }
+
+    // projects available for Emp ID
+    @GetMapping(path = "/available/{empId}")
+    public List<Project> getAvailableProjects(@PathVariable String empId){
+        System.out.println("in controller : get available projects");
+        return projectService.getAvailableProjects(Long.parseLong(empId));
+    }
+
+    // get the list of active projects for EmpID
+    @GetMapping(path = "/active/{empId}")
+    public List<Project> getActiveProjects(@PathVariable String empId){
+        System.out.println("\n fetching the list of active projects\n");
+        return projectService.getActiveProjects(Long.parseLong(empId));
+    }
+
+    // get the list of completed projects for EmpID
+    @GetMapping(path = "/complete/{empId}")
+    public List<Project> getCompletedProjects(@PathVariable String empId){
+        System.out.println("\n fetching the list of active projects\n");
+        return projectService.getCompletedProjects(Long.parseLong(empId));
+    }
+
+    // get list of all the projects for EmpID - for the pie chart, to show the distribution of technology worked on.
 }

@@ -12,4 +12,5 @@ public interface UserService {
     public Credentials signup(Credentials credentials);
     public Employee update_employee_details(Employee employee);
     public List<Credentials> getUserList();
+    public List<Employee> getDevList();
 }
