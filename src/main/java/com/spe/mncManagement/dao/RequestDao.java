@@ -10,4 +10,9 @@ public interface RequestDao extends JpaRepository<Request,Long> {
     List<Request> findByEmpId(Long id);
 
     List<Request> findAllByEmpId(Long empId);
+
+    void deleteRequestByEmpId(Long empId);
+
+
+    void deleteRequestByProjectId(String projectId);
 }

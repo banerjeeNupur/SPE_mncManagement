@@ -10,6 +10,7 @@ import com.spe.mncManagement.dao.RequestDao;
 import com.spe.mncManagement.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -32,7 +33,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     public List<Project> getProjectList(){
 
-        return  projectDao.findAllByStatusEquals("active");
+        return projectDao.findAll();
+//        return  projectDao.findByStatus();
     }
 
     public Optional<Project> getProject(Long id){
@@ -52,8 +54,15 @@ public class ProjectServiceImpl implements ProjectService {
 
     }
 
+    @Transactional
     public void deleteProject(Long id){
-         projectDao.deleteById(id);
+
+        Optional<Project> p = projectDao.findById(id);
+        projectDao.deleteById(id);
+
+        System.out.println("project id is: "+p.get().getProjectId());
+        empProjectDao.deleteEmpProjectByProjectId(p.get().getProjectId());
+        requestDao.deleteRequestByProjectId(p.get().getProjectId());
     }
 
     public void updateEmpProject(Request request){
@@ -62,6 +71,7 @@ public class ProjectServiceImpl implements ProjectService {
         ep.setEmpId(request.getEmpId());
         ep.setProjectId(request.getProjectId());
         empProjectDao.save(ep);
+        System.out.println("emp project done: "+ ep.getProjectId() + " " +ep.getEmpId());
     }
 
     // list of requests made by an employee

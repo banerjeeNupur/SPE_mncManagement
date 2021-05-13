@@ -9,4 +9,6 @@ public interface ProjectDao extends JpaRepository<Project, Long> {
 
 
     List<Project> findAllByStatusEquals(String active);
+
+//    List<Project> findAllByStatus();
 }

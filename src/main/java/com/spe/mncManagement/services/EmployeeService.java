@@ -12,4 +12,5 @@ public interface EmployeeService {
     public Employee add(Employee employee);
     public Optional<Employee> getEmployee(Long id);
     public Employee updateEmpDetails(Employee employee);
+    public boolean deleteEmployee(Long empId);
 }

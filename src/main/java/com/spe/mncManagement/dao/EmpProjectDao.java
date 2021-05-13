@@ -9,4 +9,10 @@ import java.util.List;
 public interface EmpProjectDao extends JpaRepository<EmpProject, Long> {
 
     List<EmpProject> findAllByEmpId(Long empId);
+
+
+    void deleteEmpProjectByEmpId(Long empId);
+
+
+    void deleteEmpProjectByProjectId(String projectId);
 }

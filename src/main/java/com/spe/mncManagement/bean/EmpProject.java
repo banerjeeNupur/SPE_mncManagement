@@ -17,6 +17,7 @@ public class EmpProject {
     @Column(name = "projectId")
     private String projectId;
 
+
     public EmpProject() {
     }
 

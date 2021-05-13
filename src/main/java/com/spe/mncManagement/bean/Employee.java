@@ -14,7 +14,6 @@ public class Employee {
     @Column(name = "Id")
     private Long Id;
 
-
     @Column(name = "empId")
     private Long empId;
 

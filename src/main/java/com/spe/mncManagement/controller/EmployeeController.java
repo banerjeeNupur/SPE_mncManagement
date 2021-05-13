@@ -41,6 +41,12 @@ public class EmployeeController {
         return employeeService.updateEmpDetails(employee);
     }
 
+    @DeleteMapping("/delete/{empId}")
+    public ResponseEntity<Boolean> deleteEmployee(@PathVariable String empId){
+        System.out.println("deleting employee");
+        employeeService.deleteEmployee(Long.parseLong(empId));
+        return new ResponseEntity<>(true,HttpStatus.OK);
+    }
 
 
 }

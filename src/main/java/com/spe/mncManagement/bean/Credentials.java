@@ -14,6 +14,7 @@ public class Credentials {
     @Column(name = "empId")
     private Long empId;
 
+
     @Column(name = "user_type")
     private String user_type;
 

@@ -1,8 +1,12 @@
 package com.spe.mncManagement.services.implementation;
 
+import com.spe.mncManagement.bean.Credentials;
 import com.spe.mncManagement.bean.Employee;
 import com.spe.mncManagement.bean.Project;
+import com.spe.mncManagement.dao.EmpProjectDao;
 import com.spe.mncManagement.dao.EmployeeDao;
+import com.spe.mncManagement.dao.LoginDao;
+import com.spe.mncManagement.dao.RequestDao;
 import com.spe.mncManagement.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +19,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeDao employeeDao;
+    @Autowired
+    private LoginDao loginDao;
+    @Autowired
+    private EmpProjectDao empProjectDao;
+    @Autowired
+    private RequestDao requestDao;
+
 
     public Employee add(Employee employee){
         System.out.println("--------------- Adding employee ----------------\n");
@@ -44,6 +55,22 @@ public class EmployeeServiceImpl implements EmployeeService {
         e.setEmpId(employee.getEmpId());
         return employeeDao.save(e);
 
+    }
+
+    @Transactional
+    public boolean deleteEmployee(Long empId){
+
+        System.out.println("removing from employee");
+        employeeDao.deleteEmployeeByEmpId(empId);
+        System.out.println("removing from credentials");
+        loginDao.deleteCredentialsByEmpId(empId);
+        System.out.println("removing from emp project");
+        empProjectDao.deleteEmpProjectByEmpId(empId);
+        System.out.println("removing from request");
+        requestDao.deleteRequestByEmpId(empId);
+
+
+        return true;
     }
 
 

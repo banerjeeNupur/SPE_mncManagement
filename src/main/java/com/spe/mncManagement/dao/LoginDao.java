@@ -8,4 +8,6 @@ public interface LoginDao extends JpaRepository<Credentials, Long> {
     Credentials findByUsernameEqualsAndPasswordEquals(String username, String password);
 
     Credentials findByUsernameEquals(String username);
+
+    void deleteCredentialsByEmpId(Long empId);
 }

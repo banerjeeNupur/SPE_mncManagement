@@ -59,12 +59,25 @@ public class UserServiceImpl implements UserService {
 
         List<Long> temp = new ArrayList<>();
         for (int i = 0; i < allUsers.size(); i++) {
-            temp.add(allUsers.get(i).getEmpId());
+
+            if(allUsers.get(i).getUser_type().equalsIgnoreCase("dev") ){
+                System.out.println("user type: "+allUsers.get(i).getUser_type());
+                temp.add(allUsers.get(i).getEmpId());
+            }
+
         }
 
-        for (int i = 0; i < dev.size() ; i++) {
-            if(!temp.contains(dev.get(i).getEmpId()))
-                dev.remove(i);
+//        for (int i = 0; i < dev.size() ; i++) {
+//            if(!temp.contains(dev.get(i).getEmpId()))
+//                System.out.println("removing: "+dev.get(i));
+//                dev.remove(i);
+//        }
+
+        for(int i=0; i< dev.size() ; i++){
+            if(temp.contains(dev.get(i).getEmpId())){
+                System.out.println("contains: "+dev.get(i).getEmpId());
+            }
+            else dev.remove(i);
         }
 
         return dev;

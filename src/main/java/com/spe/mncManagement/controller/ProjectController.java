@@ -55,11 +55,11 @@ public class ProjectController {
     }
 
     // delete project
-    @DeleteMapping("/delete/{projectId}")
-    public ResponseEntity<HttpStatus> deleteProject(@PathVariable String projectId){
-        System.out.println("deleting project with id: "+ projectId);
-        projectService.deleteProject(Long.parseLong(projectId));
-        return new ResponseEntity<>(HttpStatus.OK);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Boolean> deleteProject(@PathVariable String id){
+        System.out.println("deleting project with id: "+ id);
+        projectService.deleteProject(Long.parseLong(id));
+        return new ResponseEntity<>(true,HttpStatus.OK);
 
         // remove it from the employee_project and requests table
     }
@@ -83,7 +83,7 @@ public class ProjectController {
     // update request
     @PutMapping("/request/update")
     public Request updateRequest(@RequestBody Request request){
-        System.out.println("controller : update a given request");
+        System.out.println("controller : update a given request : "+ request.getStatus());
         // if approved : add it to emp_project table
         if(request.getStatus().equalsIgnoreCase("approved")){
             projectService.updateEmpProject(request);
