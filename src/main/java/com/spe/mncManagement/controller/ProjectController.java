@@ -60,6 +60,8 @@ public class ProjectController {
         System.out.println("deleting project with id: "+ projectId);
         projectService.deleteProject(Long.parseLong(projectId));
         return new ResponseEntity<>(HttpStatus.OK);
+
+        // remove it from the employee_project and requests table
     }
 
     // add a request

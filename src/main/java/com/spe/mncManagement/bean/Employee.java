@@ -9,10 +9,11 @@ import javax.persistence.*;
 @Data
 public class Employee {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long Id;
+
 
     @Column(name = "empId")
     private Long empId;
