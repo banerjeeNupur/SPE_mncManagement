@@ -1,5 +1,6 @@
 package com.spe.mncManagement.configuration;
 
+import com.spe.mncManagement.dataSource.Source;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,17 +15,17 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 public class HibernateConfiguration {
-    @Value("${db.driver}")
-    private String DRIVER;
+//    @Value("${db.driver}")
+//    private String DRIVER;
+//
+//    @Value("${db.password}")
+//    private String PASSWORD;
 
-    @Value("${db.password}")
-    private String PASSWORD;
-
-    @Value("${db.url}")
-    private String URL;
-
-    @Value("${db.username}")
-    private String USERNAME;
+//    @Value("${db.url}")
+//    private String URL;
+//
+//    @Value("${db.username}")
+//    private String USERNAME;
 
     @Value("${hibernate.dialect}")
     private String DIALECT;
@@ -38,20 +39,22 @@ public class HibernateConfiguration {
     @Value("${entitymanager.packagesToScan}")
     private String PACKAGES_TO_SCAN;
 
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(DRIVER);
-        dataSource.setUrl(URL);
-        dataSource.setUsername(USERNAME);
-        dataSource.setPassword(PASSWORD);
-        return dataSource;
-    }
+//    @Bean
+//    public DataSource dataSource() {
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName(DRIVER);
+//        dataSource.setUrl(URL);
+//        dataSource.setUsername(USERNAME);
+//        dataSource.setPassword(PASSWORD);
+//        return dataSource;
+//    }
 
     @Bean(name="entityManagerFactory")
     public LocalSessionFactoryBean sessionFactory() {
+        Source obj = new Source();
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
+//        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setDataSource(obj.getDataSource());
         sessionFactory.setPackagesToScan(PACKAGES_TO_SCAN);
         Properties hibernateProperties = new Properties();
         hibernateProperties.put("hibernate.dialect", DIALECT);
