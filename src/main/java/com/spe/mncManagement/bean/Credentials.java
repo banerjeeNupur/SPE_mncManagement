@@ -15,13 +15,13 @@ public class Credentials {
     private Long empId;
 
 
-    @Column(name = "user_type")
+    @Column(name = "user_type", nullable = false)
     private String user_type;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
     public Credentials(Long empid, String username, String password, String user_type) {

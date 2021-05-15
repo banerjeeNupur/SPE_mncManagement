@@ -67,11 +67,6 @@ public class UserServiceImpl implements UserService {
 
         }
 
-//        for (int i = 0; i < dev.size() ; i++) {
-//            if(!temp.contains(dev.get(i).getEmpId()))
-//                System.out.println("removing: "+dev.get(i));
-//                dev.remove(i);
-//        }
 
         for(int i=0; i< dev.size() ; i++){
             if(temp.contains(dev.get(i).getEmpId())){
