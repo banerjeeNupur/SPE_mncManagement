@@ -1,0 +1,55 @@
+2021-05-16 12:04:01,152 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-3] returning list of all the projects
+2021-05-16 12:04:19,902 INFO com.spe.mncManagement.controller.EmployeeController [http-nio-8764-exec-7] user details updated
+2021-05-16 12:04:26,601 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-10] returning list of all the projects
+2021-05-16 12:04:34,965 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-1] login : successful
+2021-05-16 12:04:34,990 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-2] returning list of active projects for empID
+2021-05-16 12:04:34,991 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-3] returning list of completed projects for empID
+2021-05-16 12:04:58,364 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-6] login : successful
+2021-05-16 12:04:58,383 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-7] returning list of all the projects
+2021-05-16 12:05:03,080 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-10] returning list of all the requests
+2021-05-16 12:05:07,843 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-1] returning list of all the projects
+2021-05-16 12:05:26,321 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-2] login : successful
+2021-05-16 12:05:26,344 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-4] returning list of completed projects for empID
+2021-05-16 12:05:26,344 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-5] returning list of active projects for empID
+2021-05-16 12:05:32,508 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-8] returning list of available projects for empID
+2021-05-16 12:05:43,505 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-1] added project request
+2021-05-16 12:05:44,877 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-3] returning list of available projects for empID
+2021-05-16 12:05:49,688 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-4] returning request status based on empID
+2021-05-16 12:06:00,157 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-7] login : successful
+2021-05-16 12:06:00,176 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-6] returning list of all the projects
+2021-05-16 12:06:04,129 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-8] returning list of all the requests
+2021-05-16 12:06:08,438 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-1] request approved
+2021-05-16 12:06:08,466 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-1] request rejected
+2021-05-16 12:06:09,784 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-3] returning list of all the projects
+2021-05-16 12:06:18,432 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-4] login : successful
+2021-05-16 12:06:18,452 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-5] returning list of active projects for empID
+2021-05-16 12:06:18,457 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-7] returning list of completed projects for empID
+2021-05-16 12:06:24,797 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-10] returning request status based on empID
+2021-05-16 12:06:28,544 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-1] returning list of available projects for empID
+2021-05-16 12:06:29,982 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-3] added project request
+2021-05-16 12:06:31,225 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-4] returning list of available projects for empID
+2021-05-16 12:06:33,861 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-5] returning list of active projects for empID
+2021-05-16 12:06:33,864 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-7] returning list of completed projects for empID
+2021-05-16 12:06:41,339 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-10] login : successful
+2021-05-16 12:06:41,361 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-9] returning list of all the projects
+2021-05-16 12:06:45,241 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-3] returning list of all the requests
+2021-05-16 12:06:48,186 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-2] request approved
+2021-05-16 12:06:48,202 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-2] request rejected
+2021-05-16 12:06:49,368 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-4] returning list of all the projects
+2021-05-16 12:06:51,054 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-7] returning list of all the requests
+2021-05-16 12:06:59,934 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-8] login : successful
+2021-05-16 12:06:59,947 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-10] returning list of active projects for empID
+2021-05-16 12:06:59,948 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-9] returning list of completed projects for empID
+2021-05-16 12:07:16,104 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-2] login : successful
+2021-05-16 12:07:16,125 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-4] returning list of all the projects
+2021-05-16 12:07:19,322 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-5] returning list of all the projects
+2021-05-16 12:07:22,650 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-6] returning project based on ID
+2021-05-16 12:07:24,411 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-10] project deleted
+2021-05-16 12:07:25,748 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-1] returning list of all the projects
+2021-05-16 12:07:32,752 INFO com.spe.mncManagement.controller.MainController [http-nio-8764-exec-2] login : successful
+2021-05-16 12:07:32,770 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-4] returning list of active projects for empID
+2021-05-16 12:07:32,771 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-5] returning list of completed projects for empID
+2021-05-16 12:07:36,989 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-8] returning request status based on empID
+2021-05-16 12:07:42,470 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-1] returning list of active projects for empID
+2021-05-16 12:07:42,472 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-3] returning list of completed projects for empID
+2021-05-16 12:07:46,320 INFO com.spe.mncManagement.controller.ProjectController [http-nio-8764-exec-5] returning list of available projects for empID

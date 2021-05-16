@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,7 @@ import java.util.Optional;
 public class EmployeeController {
 
 
+    Logger logger = LoggerFactory.getLogger(EmployeeController.class);
     @Autowired
     private EmployeeService employeeService;
 
@@ -38,12 +40,14 @@ public class EmployeeController {
     // update employee details
     @PutMapping("/updateDetails")
     public Employee updateEmpDetails(@RequestBody Employee employee){
+        logger.info("user details updated");
         return employeeService.updateEmpDetails(employee);
     }
 
     @DeleteMapping("/delete/{empId}")
     public ResponseEntity<Boolean> deleteEmployee(@PathVariable String empId){
         System.out.println("deleting employee");
+        logger.info("user deleted");
         employeeService.deleteEmployee(Long.parseLong(empId));
         return new ResponseEntity<>(true,HttpStatus.OK);
     }
